@@ -20,7 +20,7 @@ spec:
           args:
             - "--ignore-db-dir=lost+found"
           volumeMounts:
-            - mounPath: /var/lib/mysql
+            - mountPath: /var/lib/mysql
             - name: vpro-db-data
           ports:
             - name: vprodb-port
@@ -28,7 +28,7 @@ spec:
           env:
             - name: MYSQL_ROOT_PASSWORD
               valueFrom:
-                scretKeyRef:
+                secretKeyRef:
                   name: app-secret
                   key: db-pass
       nodeSelector:
